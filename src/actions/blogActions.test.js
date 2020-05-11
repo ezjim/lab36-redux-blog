@@ -55,7 +55,6 @@ it('creates an action that updates a post by passing an id and new body', () => 
     }
   });
  
-  
   expect(action).toEqual({
     type: UPDATE_POST,
     payload: {
@@ -65,7 +64,6 @@ it('creates an action that updates a post by passing an id and new body', () => 
         body: 'Stay a while and listen, its the end of the world.'
       }
     }
-    
   });
 });
 
