@@ -25,6 +25,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chance": "^1.1.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "redux": "^4.0.5"
