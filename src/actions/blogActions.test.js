@@ -1,5 +1,5 @@
-import { ADD_POST, addPost, deletePost, UPDATE_POST, updatePost } from './blogActions';
-var Chance = require('chance');
+import { ADD_POST, addPost, deletePost, UPDATE_POST, updatePost, DELETE_POST } from './blogActions';
+const Chance = require('chance');
 
 describe('blog actions', () => {
   it('creats an ADD_POST action', () => {
@@ -41,18 +41,31 @@ it('creates an action to delete a post', () => {
   const action = deletePost({ id: 1 });
 
   expect(action).toEqual({
-    type: 'DELETE_POST',
+    type: DELETE_POST,
     payload: { id: 1 }
   });
 });
 
 it('creates an action that updates a post by passing an id and new body', () => {
-  const action = updatePost({
+  const action = updatePost({ 
+    post: {
+      id: 3,
+      title: 'Deckard Cain',
+      body: 'Stay a while and listen, its the end of the world.' 
+    }
+  });
+ 
+  
+  expect(action).toEqual({
     type: UPDATE_POST,
     payload: {
-      id: 2,
-      body: chance.sentence({ words: 10 })
+      post: {
+        id: 3,
+        title: 'Deckard Cain',
+        body: 'Stay a while and listen, its the end of the world.'
+      }
     }
-
+    
   });
 });
+
