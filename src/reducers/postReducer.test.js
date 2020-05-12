@@ -22,4 +22,19 @@ describe('post reducer', () => {
       }
     ]);
   });
+  /////////////////////////////////////////////////////
+  it('handles the UPDATE_POST action', () => {
+    const state = [{
+      id: 6,
+      title: chance.name(),
+      body: chance.string({ words: 10 })
+    }];
+
+    const action = updatePost(0, {
+      id: 7,
+      title: 'Arreats Bravest',
+      body: 'D2 was possibly the best game ever made.'
+    });
+    
+  });
 });
