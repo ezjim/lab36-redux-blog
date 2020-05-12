@@ -35,6 +35,16 @@ describe('post reducer', () => {
       title: 'Arreats Bravest',
       body: 'D2 was possibly the best game ever made.'
     });
-    
+  });
+  
+  it('handles the DELETE_POST action', () => {
+    const state = [{
+      id: 7,
+      title: 'Arreats Bravest',
+      body: 'D2 was possibly the best game ever made.'
+    }];
+    const action = deletePost(0);
+    const newState = reducer(state, action);
+    expect(newState).toEqual();
   });
 });
