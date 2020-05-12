@@ -1,11 +1,9 @@
 import { addPost, deletePost, updatePost } from '../actions/blogActions';
 import reducer from './postReducer';
-const Chance = require('chance');
-
 
 describe('post reducer', () => {
   it('handles the ADD_POST action', () => {
-    const state = []
+    const state = [];
     const action = addPost({
       id: 6,
       title: chance.name(),
@@ -13,7 +11,6 @@ describe('post reducer', () => {
     });
 
     const newState = reducer(state, action);
-
     expect(newState).toEqual([
       {
         id: 6,
@@ -25,9 +22,9 @@ describe('post reducer', () => {
   /////////////////////////////////////////////////////
   it('handles the UPDATE_POST action', () => {
     const state = [{
-      id: 6,
-      title: chance.name(),
-      body: chance.string({ words: 10 })
+      id: 7,
+      title: 'Arreats Bravest',
+      body: 'D2 was possibly the best game ever made.'
     }];
 
     const action = updatePost(0, {
@@ -35,8 +32,18 @@ describe('post reducer', () => {
       title: 'Arreats Bravest',
       body: 'D2 was possibly the best game ever made.'
     });
+
+    const newState = reducer(state, action);
+    expect(newState).toEqual([
+      {
+        id: 7,
+        title: 'Arreats Bravest',
+        body: 'D2 was possibly the best game ever made.'
+      }
+    ]);
   });
-  
+
+  //////////////////////////////////////////////////////
   it('handles the DELETE_POST action', () => {
     const state = [{
       id: 7,
@@ -45,6 +52,6 @@ describe('post reducer', () => {
     }];
     const action = deletePost(0);
     const newState = reducer(state, action);
-    expect(newState).toEqual();
+    expect(newState).toEqual([]);
   });
 });
